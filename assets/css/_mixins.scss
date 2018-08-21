@@ -1,0 +1,22 @@
+/****************************************
+ ----------------------------------------
+ * PADRAO DE ITENS *
+ ----------------------------------------
+ ****************************************/
+@mixin flex($dir) {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content($dir);
+}
+
+@mixin blocoabsoluto() {
+    width: 100%; height: 100%; position: absolute;
+    top: 0; left: 0; display: block;
+}
+
+@mixin imagemfull($size) {
+    background-size: $size;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

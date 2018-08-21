@@ -1,0 +1,111 @@
+
+// links
+a {
+	&:link, &:visited, &:active, &:focus {
+		outline: 0;
+		color: inherit;
+		@include transition(color 0.3s ease-in-out);
+		text-decoration:none;
+	}
+
+	&[href*="http"], &[href*="www"], &[target*="blank"], &[href*='mailto'], a:link{
+		overflow-wrap: break-word;
+		word-break: break-all;
+	}
+}
+b, strong {
+	font-weight: bold;
+	color: inherit;
+}
+u {
+	text-decoration: underline;
+}
+i, em {
+	font-style: italic;
+	color: inherit;
+}
+s {
+	text-decoration: line-through;
+}
+// item de delete
+del {
+	display: none
+}
+// paragrafos
+p, ul, ol, blockquote {
+	margin: 0 0 25px;
+}
+
+
+small {
+	font-size: 80%;
+}
+
+center {
+	text-align: center;
+}
+
+// titulos
+h1, h2, h3 {
+	line-height: 1.3;
+	display: block;
+	font-family: $fonte-titulo;
+	font-weight: bold;
+	margin: 0 0 20px;
+
+	a {
+		color: inherit !important;
+		text-decoration:none !important;
+	}
+
+	body.livro1 & {color: $livro1;}
+	body.livro2 & {color: $livro2;}
+}
+
+h1, h2 {font-size: 2em;}
+h3 { font-size: 1.6em; }
+
+h4, h5, h6 {
+	font-size: 1em;
+	color: inherit;
+	font-weight: normal;
+}
+
+
+// quote
+blockquote {
+	font-size: 1em;
+	font-style: italic;
+	color: inherit;
+	padding: 0 30px;
+	font-family: $fonte-padrao;
+}
+
+
+// divisoria
+hr {
+	display: block;
+	width: 500px;
+	max-width: 100%;
+	margin: 25px auto;
+    border: 0;
+    padding: 0;
+    // background: ;
+    height: 2px;
+    position: relative;
+    overflow: inherit;
+}
+
+
+// definicoes
+.clear {
+	clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.db {
+	display: block;
+}
