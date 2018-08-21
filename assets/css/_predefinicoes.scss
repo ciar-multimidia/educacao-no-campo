@@ -4,13 +4,36 @@ a {
 	&:link, &:visited, &:active, &:focus {
 		outline: 0;
 		color: inherit;
-		@include transition(color 0.3s ease-in-out);
+		@include transition(box-shadow 0.3s ease-in-out);
 		text-decoration:none;
+	}
+
+	&:hover {
+		text-decoration: underline;
 	}
 
 	&[href*="http"], &[href*="www"], &[target*="blank"], &[href*='mailto'], a:link{
 		overflow-wrap: break-word;
 		word-break: break-all;
+	}
+
+	article & {
+		box-shadow: inset 0 -4px 0 darken($cinza,10%);
+		&:hover {text-decoration: none; box-shadow: inset 0 -20px 0 darken($cinza,10%);}
+	}
+
+	body.livro1 article & {
+		color: lighten($livro1,20%);
+		box-shadow: inset 0 -4px 0 transparentize(lighten($livro1,20%),0.75);
+
+		&:hover {box-shadow: inset 0 -20px 0 transparentize(lighten($livro1,20%),0.75);}
+	}
+
+	body.livro2 article & {
+		color: lighten($livro2,20%);
+		box-shadow: inset 0 -4px 0 transparentize(lighten($livro2,20%),0.75);
+
+		&:hover {box-shadow: inset 0 -20px 0 transparentize(lighten($livro2,20%),0.75);}
 	}
 }
 b, strong {
@@ -46,7 +69,7 @@ center {
 }
 
 // titulos
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
 	line-height: 1.3;
 	display: block;
 	font-family: $fonte-titulo;
@@ -62,22 +85,19 @@ h1, h2, h3 {
 	body.livro2 & {color: $livro2;}
 }
 
-h1, h2 {font-size: 2em;}
-h3 { font-size: 1.6em; }
-
-h4, h5, h6 {
-	font-size: 1em;
-	color: inherit;
-	font-weight: normal;
-}
+h1, h2 {font-size: 2.1em;}
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.6em; }
+h5, h6 { font-size: 1.4em; }
 
 
 // quote
 blockquote {
 	font-size: 1em;
 	font-style: italic;
+	opacity: 0.8;
 	color: inherit;
-	padding: 0 30px;
+	padding: 0 0 0 30px;
 	font-family: $fonte-padrao;
 }
 
@@ -87,10 +107,10 @@ hr {
 	display: block;
 	width: 500px;
 	max-width: 100%;
-	margin: 25px auto;
+	margin: 50px 0;
     border: 0;
     padding: 0;
-    // background: ;
+    background: darken($cinza,10%);
     height: 2px;
     position: relative;
     overflow: inherit;
@@ -108,4 +128,16 @@ hr {
 
 .db {
 	display: block;
+}
+
+.direita {
+	text-align: right;
+}
+
+.esquerda {
+	text-align: left;
+}
+
+.centraliza {
+	text-align: center;
 }

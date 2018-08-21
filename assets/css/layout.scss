@@ -50,6 +50,7 @@ body {
 	margin: 0 auto;
 	max-width: 100%;
 	padding: 0 10px;
+	position: relative;
 }
 
 #cabecalho {
@@ -136,6 +137,7 @@ article {
 	position: relative;
 	z-index: 1;
 	padding: 10px 10px 100px !important;
+	text-align: justify;
 
 	& > * {
 		width: $largura-texto;
@@ -177,13 +179,6 @@ article {
 		}
 	}
 
-	p {
-	  -webkit-hyphens: auto;
-	  -moz-hyphens: auto;
-	  -ms-hyphens: auto;
-	  hyphens: auto;
-	  text-align: justify;
-	}
 
 	span.pagina {
 		position: absolute;
@@ -200,6 +195,13 @@ article {
 			float: right;
 			margin: 0 0 0 10px;
 		}
+	}
+
+	blockquote {
+		width: 100%;
+		@include clearfix();
+
+		p { width: $largura-texto; float: right;}
 	}
 
 	figure{
@@ -221,6 +223,39 @@ article {
 			text-align: center;
 			font-style: italic;
 		}
+	}
+
+	h4 { 
+		font-size: 1.1em; 
+		line-height: 1.3;
+		display: block;
+		font-family: $fonte-titulo;
+		font-weight: bold;
+	}
+	h5, h6 {
+		font-size: 1em;
+		line-height: 1.3;
+		display: block;
+		font-family: $fonte-titulo;
+		font-weight: bold;
+	}
+
+
+	.box {
+		width: $largura-texto / 1.5;
+		float: right;
+		margin: 0 0 0 20px;
+		padding: 20px;
+		font-style: italic;
+
+		p:last-of-type {margin-bottom: 0}
+	}
+
+	body.livro1 & {
+		.box {color: $livro1; background: transparentize($livro1,0.8)}
+	}
+	body.livro2 & {
+		.box {color: $livro2; background: transparentize($livro2,0.8)}
 	}
 }
 
@@ -270,9 +305,9 @@ footer {
 					margin-left: 8px;
 				}
 
-				&.desabilita {
+				&[disabled] {
 					opacity: 0.4;
-					cursor: not-allowed;
+					pointer-events: none;
 				}
 			}
 		}
@@ -314,6 +349,7 @@ footer {
 				&.ativo, &:hover {
 					background: $branco;
 					color: $livro1;
+					text-decoration: none;
 				}
 			}
 		}
@@ -321,6 +357,16 @@ footer {
 		button.fechar {
 			display: none;
 			@include transition(all 0.2s linear);
+			@include appearance(none);
+			background: none;
+			border: none;
+			outline: none;
+			color: $branco;
+			opacity: 0;
+			font-size: 70px;
+			line-height: 1;
+			position: absolute;
+			right: 0; top: 0;
 
 			&:hover{
 				cursor: pointer;
@@ -336,6 +382,7 @@ footer {
 		width: 100%;
 		height: 0;
 		overflow: hidden;
+		position: relative;
 
 		&.invisivel{
 			opacity: 0;
@@ -346,8 +393,8 @@ footer {
 		overflow: scroll;
 		height: 100vh;
 
-		body.livro1 & {background: transparentize(darken($livro1,20%),0.1);}
-		body.livro2 & {background: transparentize(darken($livro2,20%),0.1);}
+		body.livro1 & {background: transparentize(darken($livro1,16%),0.05);}
+		body.livro2 & {background: transparentize(darken($livro2,16%),0.05);}
 
 		.navegadores{
 			display: none;
@@ -360,6 +407,15 @@ footer {
 		.cnt-sumario {
 			height: 100%;
 			overflow: auto;
+			font-weight: normal;
 		}
 	}	
+
+	@media (max-width: 480px) {
+		height: 60px;
+
+		.container { padding: 8px 5px; }
+	}
 }
+
+@import "sumario";

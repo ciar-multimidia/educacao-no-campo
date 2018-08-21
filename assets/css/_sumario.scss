@@ -1,0 +1,93 @@
+.cnt-sumario {
+	padding: 40px 10px;
+	color: $branco;
+	font-size: 1.3em;
+
+	h3 {
+		width: 100%; 
+		font-size: 3em;
+		letter-spacing: 0.1em;
+		color: inherit !important;
+	}
+
+	.nav-primario {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 40px;
+
+		a {
+			padding: 0 10px;
+			display: inline-block;
+		}
+	}
+
+	h4 {
+		text-align: left;
+		@extend h3;
+		font-size: 2em;
+
+		span {
+			display: block;
+			font-size: 1.2rem;
+			font-family: $fonte-padrao;
+			text-transform: none;
+			letter-spacing: 0;
+			font-style: italic;
+		}
+	}
+
+	ol {
+		width: 100%; counter-reset: section;
+		@include flex(space-between);
+
+		li {
+			width: calc(50% - 15px);
+			text-align: left;
+			text-transform: none;
+			padding: 10px 0 15px;
+
+			&:before {
+				vertical-align: middle;
+				counter-increment: section;
+				content: counter(section) ".";
+				font-weight: 700;
+				vertical-align: baseline;
+				margin-right: 10px;
+			}
+
+			span {
+				font-style: italic;
+				font-size: 0.8em;
+				display: block;
+				opacity: 0.7;
+			}
+		}
+	}
+
+	body.livro1 & {
+		h3, h4 {color: lighten($livro1,25%) !important;}
+		ol li:before {color: lighten($livro1,25%)}
+	}
+
+	body.livro2 & {
+		h3, h4 {color: lighten($livro2,25%) !important;}
+		ol li:before {color: lighten($livro2,25%)}
+	}
+
+	@media (max-width: $largura-texto) {
+		ol {
+			li {width: 100%;}
+		}
+	}
+
+	@media (max-width: 480px) {
+		font-size: 1em;
+
+		h3 {font-size: 2em; margin-bottom: 0}
+		h4 {font-size: 1.5em; margin-bottom: 0}
+
+		.nav-primario {
+			font-size: 0.9em;
+		}
+	}
+}
