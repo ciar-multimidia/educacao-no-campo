@@ -419,3 +419,117 @@ footer {
 }
 
 @import "sumario";
+
+
+
+////////////////////////////////////// NOTA RODAPE
+button.botao-rodape{
+	@include appearance(none);
+	outline: none;
+	display: inline;
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: 0.2em 0.3em;
+	font-family: $fonte-padrao;
+	font-size: 0.9em;
+	line-height: 1;
+	background-color: hsl(0,0,90%);
+	border-radius: 2px;
+	border: 1px solid hsl(0,0,70%);
+	vertical-align: top;
+	&:before{
+		display: inline;
+		content: attr(data-numero);
+	}
+	&:hover{
+		cursor: pointer;
+	}
+
+	&.focus{
+		outline: none;
+	}
+
+	@include transition(all 0.1s linear);
+	@include transition-property(color, background-color, border);
+	&.ativado{
+		border-color: black;
+		background-color: black;
+		color: white;
+	}
+
+}
+
+.container-notas-rodape {
+	font-size: 0.9em;
+	p {
+		width: 100%;
+
+		&:last-of-type {margin-bottom: 0}
+	}
+}
+ 
+.nota-rodape{
+	position: absolute;
+	font-size: 0.9em;
+	padding: 1em 1em 2em;
+	margin: 0 10px;
+	box-shadow: 0px 4px 15px rgba(0,0,0, 0.3);
+	background-color: #fff;
+	border-bottom-width: 4px;
+	width: auto;
+	max-width: 480px;
+	z-index: 5;
+	display: none;
+	opacity: 0;
+	@include transform(scale(0.5));
+	@include transition(all 0.2s ease-out);
+	@include transition-property(opacity, transform);
+
+
+	@include transform-origin(50% 100%);
+	&.origem-top{
+		@include transform-origin(50% 0%);
+
+	}
+
+	&.db{
+		display: block;
+	}
+	&.visivel{
+		opacity: 1;
+		@include transform(scale(1));
+		z-index: 4;
+	}
+
+	&.easing-saida{
+		@include transition-timing-function(ease-in);
+	}
+
+	p, blockquote, ul, ol {
+		padding: 0;
+	}
+
+	button.fechar{
+		@include appearance(none);
+		outline: none;
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		float: right;
+		border: none;
+		outline: none;
+		display: block;
+		font-size: 37px;
+		line-height: 1;
+		margin-top: -10px;
+
+		&:hover{
+			cursor: pointer;
+		}
+
+		& + * {
+			margin-top: 0.4em;
+		}
+	}
+}
