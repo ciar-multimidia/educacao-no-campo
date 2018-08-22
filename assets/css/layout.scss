@@ -158,11 +158,19 @@ article {
 		&, *{
 			border-collapse: collapse;
 		}
+
 		th{
 			padding: 0.3em 0.6em;
-			text-align: left;
+			text-align: center;
 			background: $cinza;
 			font-weight: bold;
+		}
+
+		td {
+			vertical-align: top;
+			text-align: left;
+
+			p {text-align: left;}
 		}
 
 		thead{
@@ -176,6 +184,13 @@ article {
 					padding: 0.3em 0.6em;
 				}
 			}
+		}
+
+		caption { 
+			padding: 8px 0;
+		    display: table-caption;
+		    caption-side: bottom;
+		    text-align: right;
 		}
 	}
 
