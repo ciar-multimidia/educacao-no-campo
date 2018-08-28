@@ -1,28 +1,4 @@
-// CORES VARIAVEIS
-$branco: #fff;
-$cor-texto: #444;
-$preto: #111;
-$cinza: #f7f7f7;
-
-$livro1: #2C4C2E;
-$livro2: #255656;
-
-
-// FAMILIAS VARIAVEIS
-$fonte-padrao: "Roboto",sans-serif;
-$fonte-titulo: "Oswald",serif;
-
-
-// LARGURAS
-$largura-texto: 780px;
-$largura-container: 1200px;
-
-// IMPORTACOES
-@import "bourbon/bourbon";
-@import "reset";
-@import "mixins";
 @import "predefinicoes";
-@charset "UTF-8";
 
 /****************************************
  ----------------------------------------

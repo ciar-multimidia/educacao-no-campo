@@ -1,0 +1,80 @@
+@import "predefinicoes";
+
+/****************************************
+ ----------------------------------------
+ * LAYOUT *
+ ----------------------------------------
+ ****************************************/
+
+ body {
+	font-weight: 400;
+	font-style: normal;
+	font-size: 17px;
+	line-height: 1.65;
+	color: $cor-texto;
+	font-family: $fonte-padrao;
+	background: $branco url('../img/portal.jpg') no-repeat fixed center center / cover;
+	position: relative;
+	height: 100vh;
+	
+	@media (max-width: 1024px) {
+		height: auto;
+		min-height: 100vh;
+		background-attachment: scroll;
+	}
+}
+
+section {
+	width: $largura-container;
+	max-width: 100%;
+	padding: 20px;
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	@include transform(translateX(-50%));
+	@include flex(space-between);
+
+
+	header {
+
+		& > img {
+			width: 338px;
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.marca {
+				padding: 20px 40px 10px;
+				background: $branco;
+				display: inline-block;
+				text-transform: uppercase;
+				
+				h1 {
+					font-size: 3em;
+					margin: 0 0 10px;
+					@supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
+						background: url('../img/portal.jpg') no-repeat fixed center bottom / cover;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+
+				h2 {
+					margin: 0 0 10px;
+					font-size: 1.7em;
+					@supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
+						background: url('../img/portal.jpg') no-repeat fixed center bottom / cover;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+
+				h3 {
+					font-size: 18px;
+					text-transform: none;
+					text-align: right;
+					font-weight: normal;
+				}
+			}
+	}
+}
