@@ -125,7 +125,16 @@ article {
 	}
 
 	h2.parte {
+		width: 100%;
 		font-size: 3em;
+		margin-bottom: 100px;
+		font-weight: normal;
+		span {
+			display: block;
+			font-family: $fonte-padrao;
+			font-size: 1.8rem;
+			font-style: italic;
+		}
 	}
 
 	table{
@@ -239,12 +248,14 @@ article {
 
 		img{
 			display: block;
-			width: 90%;
+			width: auto;
+			max-width: 90%;
 			text-align: center;
 			margin: 0 auto;
 			height: auto;
+			max-height: 500px;
 			display: block;
-			box-shadow: 0 0 6px rgba(0,0,0,0.2)
+			// box-shadow: 0 0 6px rgba(0,0,0,0.2)
 		}
 		figcaption{
 			margin-top: 0.5em;
@@ -280,8 +291,9 @@ article {
 		width: $largura-texto / 1.5;
 		float: right;
 		margin: 0 0 0 20px;
-		padding: 20px;
+		padding: 40px;
 		font-style: italic;
+		font-size: 0.9em;
 
 		p:last-of-type {margin-bottom: 0}
 
@@ -289,10 +301,10 @@ article {
 	}
 
 	body.livro1 & {
-		.box {color: $livro1; background: transparentize($livro1,0.8)}
+		.box {color: $livro1; background: transparentize($livro1,0.9)}
 	}
 	body.livro2 & {
-		.box {color: $livro2; background: transparentize($livro2,0.8)}
+		.box {color: $livro2; background: transparentize($livro2,0.9)}
 	}
 }
 
