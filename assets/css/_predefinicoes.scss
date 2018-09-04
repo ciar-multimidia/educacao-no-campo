@@ -170,3 +170,21 @@ hr {
 .centraliza {
 	text-align: center;
 }
+
+
+.fichacatalografica {
+	width: 100%;
+	@include flex(space-between);
+	border: 1px solid $cor-texto; width: 100%; 
+	margin: 50px 0;
+	text-align: left;
+
+	.titulo {width: 100%; font-weight: 700; border-bottom: 1px solid $cor-texto; padding: 15px}
+
+	.codigo { width: 8%; padding: 15px 15px 0 15px; font-size: 1.1em; }
+	
+	.dados {width: 88%; text-align: left; padding: 15px 15px 0 15px;
+
+		.cdu {text-align: right;}
+	}
+}

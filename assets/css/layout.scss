@@ -33,9 +33,12 @@ body {
 #cabecalho {
 	padding: 0 0 30px;
 	margin: 0 0 60px;
+	background: url('../img/portal.jpg') no-repeat center center / cover;
 
 	.container {
 		@include flex(space-between);
+
+		a {text-decoration: none;}
 
 		.marca {
 			padding: 20px 40px 10px;
@@ -46,7 +49,7 @@ body {
 			h1 {
 				margin: 0 0 10px;
 				@supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
-					background: url('../img/livro1.jpg') no-repeat center center;
+					background: url('../img/portal.jpg') no-repeat left bottom;
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
 				}
@@ -306,6 +309,20 @@ article {
 	body.livro2 & {
 		.box {color: $livro2; background: transparentize($livro2,0.9)}
 	}
+
+
+	&.colunas {
+		@include flex(space-between);
+
+		.coluna-full {width: 100%;}
+		.coluna-media { 
+			width: calc(50% - 20px);
+
+			@media (max-width: 700px) {
+				width: 100%;
+			}
+		}		
+	}
 }
 
 
@@ -320,6 +337,7 @@ footer {
 	font-size: 12px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+	background: lighten($preto,5%);
 	@include transition(all 0.5s ease-in-out);
 
 	body.livro1 & {background: $livro1;}
