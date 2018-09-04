@@ -1,0 +1,110 @@
+.timeline{
+	margin: 2em 0;
+	text-align: left;
+	font-size: 0.9em;
+
+	.scroller{
+		width: auto;
+		white-space: nowrap;
+		overflow: visible;
+		position: relative;
+		@include transition(transform 0.4s ease-out);
+	}
+	.textos{
+		overflow: hidden;
+
+		.item{
+
+			h2, h3, h4, h5 {text-align: center;}
+
+			font-size: 1em;
+			width: 100%;
+			display: inline-table;
+			white-space: normal;
+			vertical-align: top;
+			opacity: 0.3;
+			@include transition(all 0.4s linear);
+			@include transition-property(opacity);
+
+			&.ativo{
+				opacity: 1;
+			}
+		}
+	}
+
+
+	.tempos{
+		padding: 5px 0 30px;
+		overflow: hidden;
+		font-size: 0.9em;
+		button{
+			max-width: 25%;
+			z-index: 2;
+			background-color: hsl(0,0%,95%);
+			padding: 1em;
+			position: relative;
+			vertical-align: middle;
+			border-radius: 1.5em;
+			border: 2px solid $livro1;
+			@include transition(all 0.4s linear);
+			@include transition-property(background-color, color);
+			outline: none;
+			display: inline-block;
+			@include appearance(none);
+			@include user-select(none);
+			text-align: center;
+			color: $livro1;
+			font-size: 1.2em;
+			font-weight: bold;
+			white-space: normal;
+			&:hover{
+				cursor: pointer;
+			}
+
+			&:not(:last-child){
+				margin-right: 2em;
+			}
+
+			&:not(:last-child):after{
+				content: '';
+				position: absolute;
+				right: calc(-2em - 2px);
+				top: 50%;
+				width: 2em;
+				border-bottom: 1px dotted $livro1;
+			}
+
+			&.ativo{
+				background-color: $livro1;
+				border-color: $livro1;
+				color: white;
+				&:before{
+					content: '';
+					position: absolute;
+					left: 50%;
+					@include transform(translateX(-50%));
+					bottom: -10px;
+					// @include transition(bottom 0.2s ease-out);
+					height: 0;
+					width: 0;
+					z-index: -1;
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+					border-top: 10px solid $livro1;
+				}
+				
+			}
+
+			&.traco-ativo{
+				&:not(:last-child):after{
+					border-bottom: 3px solid $livro1;
+				}
+			}
+
+			span{
+				display: block;
+				font-size: 0.9em;
+			}
+		}
+	}
+}
