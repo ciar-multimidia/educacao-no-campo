@@ -184,9 +184,9 @@ article {
 		}
 	}
 
-	ul, ol {
+	& > ul, & > ol {
 		counter-reset: section;
-		margin-left: 2em;
+		padding-left: 2em;
 
 		li {
 			padding: 7px 0; display: block;
@@ -199,7 +199,7 @@ article {
 			ul, ol {
 				margin-right: 0;
 				margin-bottom: 0;
-				margin-left: 30px;
+				padding-left: 30px;
 			}
 		}
 	}

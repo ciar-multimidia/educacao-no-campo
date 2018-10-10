@@ -404,19 +404,19 @@ article {
       display: table-caption;
       caption-side: bottom;
       text-align: left; }
-  article ul, article ol {
+  article > ul, article > ol {
     counter-reset: section;
-    margin-left: 2em; }
-    article ul li, article ol li {
+    padding-left: 2em; }
+    article > ul li, article > ol li {
       padding: 7px 0;
       display: block; }
-      article ul li:before, article ol li:before {
+      article > ul li:before, article > ol li:before {
         display: inline-block;
         margin-right: 10px; }
-      article ul li ul, article ul li ol, article ol li ul, article ol li ol {
+      article > ul li ul, article > ul li ol, article > ol li ul, article > ol li ol {
         margin-right: 0;
         margin-bottom: 0;
-        margin-left: 30px; }
+        padding-left: 30px; }
   article ul > li:before {
     content: "\2022";
     vertical-align: middle; }
