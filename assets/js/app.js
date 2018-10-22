@@ -173,4 +173,11 @@ jQuery(document).ready(function($) {
 
 		atualizarTempo();
 	}
+
+
+	//////////////////////////// IMPRIMIR
+	$('.btn-imprimir').on('click', function(event) {
+		event.preventDefault();
+		$(window)[0].print();
+	});
 });

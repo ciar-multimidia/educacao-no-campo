@@ -385,6 +385,47 @@ footer {
 		@include flex(space-between);
 		text-align: center;
 
+		a.btn-imprimir {
+			width: 60px; height: 60px;
+			line-height: 60px;
+			background: white;
+			border: 1px solid gray;
+			border-radius: 50%;
+			position: absolute;
+			top: -50px;
+			right: 0;
+			@include transform(translateY(-100%));
+			color: lighten($preto,5%);
+			text-decoration: none;
+			@include transition(background 0.2s ease-in-out, color 0.2s ease-in-out);
+
+
+			&:before {
+				content: '\2399';
+				font-size: 40px;
+			}
+
+			&:after {
+				content: 'Salvar / Imprimir';
+				white-space: nowrap;
+				line-height: 1;
+				display: block;
+				position: absolute;
+				top: 75px;
+				font-size: 10px;
+				color: $cor-texto !important;
+				font-family: $fonte-padrao;
+				font-weight: bold;
+				left: 50%;
+				@include transform(translateX(-50%));
+			}
+
+			&:hover {
+				background: lighten($preto,5%);
+				color: white;
+			}
+		}
+
 		a {color: inherit;}
 
 		.navega-caps {

@@ -1,0 +1,185 @@
+@page {
+  margin: 1.5cm;
+  size: A4;
+  font-family: 'Calibri';
+}
+   
+body{
+  font-family: 'Calibri';
+  font-size: 11pt;
+}
+
+// links
+a {
+  color: black;
+  text-decoration: none;
+
+  &[href]:after {
+      content: " (" attr(href) ")";
+  }
+
+  &[href^="#"]:after,
+  &[href^="javascript"]:after {
+      content: "";
+  }
+}
+
+// topo
+a.marca {
+  width: 100%;
+  display: block;
+  margin: 0;
+  line-height: 1;
+  font-size: 1.2cm;
+  padding: 0 0 0.5cm;
+  border-bottom: 1px solid gray;
+  font-weight: bold;
+
+  .modulo {display: block; font-size: 0.5cm}
+
+  &:after {display: none;}
+}
+
+// textos
+h1 {
+  font-size: 1cm;
+  margin:0;
+}
+
+h2 {font-size: 0.6cm}
+h3 {font-size: 0.5cm}
+h4, h5, h6 {font-size: 1em}
+
+h1, h2, h3, h4, h5, h6 {margin-top: 1cm}
+
+
+em, i {font-style: italic;}
+strong, b {font-weight: bold;}
+
+
+p {
+  widows: 3; 
+  orphans: 3;
+  // page-break-inside:avoid;
+}
+
+
+table {
+  text-align: left;
+  width: 100%;
+  border-spacing: 0;
+  margin-top: 1cm;
+  border: 2px solid;
+  border-right-width: 0;
+  border-left-width: 0;
+  th, td{
+    margin: 0;
+    border: 1px solid hsl(0,0,65%);
+    border-top-width: 0;
+    border-left-width: 0;
+    padding: 10px 20px;
+
+    p {text-indent: 0}
+    &:last-child{
+      border-right-width: 0;
+    }
+  }
+
+  tr {page-break-inside:avoid;}
+
+
+  caption{
+    text-align: left;
+    line-height: 1.2;
+    color: gray;
+  }
+}
+
+blockquote {
+  margin-left: 2.5cm;
+  color: hsl(0,0,45%);
+  p {text-indent: 0}
+}
+
+
+.box {
+  page-break-inside:avoid;
+  padding: 0.3cm;
+  margin-top: 0.5cm;
+  background: hsl(0,0,95%);
+  border: 1px solid hsl(0,0,75%);
+
+  h3, h4, h5, h6 {margin-top: 0}
+}
+
+figure {
+  width: auto;
+  height: auto;
+  max-width: 12cm;
+  margin-left: auto;
+  margin-right: auto;
+  page-break-inside:avoid;
+
+  img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+
+  figcaption {
+    text-align: center;
+  }
+}
+
+
+// notas de rodape
+button.botao-rodape {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:before{
+    display: inline;
+    content: attr(data-numero);
+  }
+}
+
+
+.container-notas-rodape {
+  padding: 1cm;
+  margin-top: 1cm;
+  border: 1px solid hsl(0,0,65%);
+  position: relative;
+
+  &:before {
+    content: 'Notas de rodape';
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+  }
+
+  button {display: none;}
+
+  .nota-rodape {
+    &:before{
+      display: inline-block;
+      content: attr(data-numero) ') ';
+      margin-right: 0.2cm;
+      float: left;
+    }
+
+    p {
+      margin-top: 0;
+      text-indent: 0;
+    }
+  }
+}
+
+
+hr {margin: 1cm 0;}
+
+// ocultar itens
+#cabecalho, footer, span.pagina {
+  display: none;
+}
