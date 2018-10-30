@@ -113,7 +113,13 @@ section {
 
 					&.ficha {
 						font-size: 1.7em;
-						padding-left: 25px; 
+						padding-left: 20px; 
+						border-left: 5px solid $cor-texto;
+
+						&:hover {
+							padding-left: 15px;
+							border-left-width: 10px;
+						}
 					}
 
 					&.livros {
